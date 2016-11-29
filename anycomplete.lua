@@ -3,7 +3,7 @@ local urlencode = require("urlencode")
 
 -- Anycomplete
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
-    local GOOGLE_ENDPOINT = 'https://www.google.com/complete/search?client=hp&hl=en&xhr=t&q=%s'
+    local GOOGLE_ENDPOINT = 'http://suggestqueries.google.com/complete/search?client=firefox&q=%s'
     local current = hs.application.frontmostApplication()
 
     local chooser = hs.chooser.new(function(choosen)
@@ -23,7 +23,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
 
             choices = hs.fnutils.imap(results[2], function(result)
                 return {
-                    ["text"] = string.gsub(result[1], '</?b>', ''),
+                    ["text"] = result,
                 }
             end)
 
