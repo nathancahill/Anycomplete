@@ -18,4 +18,13 @@ The hotkey can be changed by editing [hs.hotkey.bind](https://github.com/nathanc
 
 ### Privacy
 
-No keystrokes are sent to Google until you trigger the hotkey and start typing.
+No keystrokes are sent to Google until you trigger the hotkey and start typing. If you prefer DuckDuckGo, replaces `GOOGLE_ENDPOINT` with:
+`'https://duckduckgo.com/ac/?q=%s'` and the `imap` function with this:
+
+```
+choices = hs.fnutils.imap(results[2], function(result)
+    return {
+        ["text"] = result["phrase"],
+    }
+end)
+```
