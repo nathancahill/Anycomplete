@@ -1,7 +1,7 @@
 
 -- Anycomplete
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
-    local GOOGLE_ENDPOINT = 'https://suggestqueries.google.com/complete/search?client=firefox&q=%s'
+    local GOOGLE_ENDPOINT = 'https://suggestqueries.google.com/complete/search?client=firefox&q=memes'
     local current = hs.application.frontmostApplication()
 
     local chooser = hs.chooser.new(function(choosen)
