@@ -4,9 +4,10 @@ local urlencode = require("urlencode")
 -- Google Autocomplete
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
     local GOOGLE_ENDPOINT = 'https://www.google.com/complete/search?client=hp&hl=en&xhr=t&q=%s'
+    local current = hs.application.frontmostApplication()
 
     local chooser = hs.chooser.new(function(choosen)
-        hs.window.frontmostWindow():focus()
+        current:activate()
         hs.eventtap.keyStrokes(choosen.text)
     end)
 
