@@ -31,7 +31,6 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
         end)
     end)
 
-    chooser:rows(5)
     chooser:searchSubText(false)
 
     chooser:show()
