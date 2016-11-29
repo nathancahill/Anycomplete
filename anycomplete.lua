@@ -17,9 +17,8 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
         hs.http.asyncGet(string.format(GOOGLE_ENDPOINT, query), nil, function(status, data)
             if not data then return end
 
-            local results = hs.json.decode(data)
-
-            if not results then return end
+            local ok, results = pcall(function() return hs.json.decode(data) end)
+            if not ok then return end
 
             choices = hs.fnutils.imap(results[2], function(result)
                 return {
