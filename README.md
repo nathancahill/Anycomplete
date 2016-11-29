@@ -18,7 +18,7 @@ The hotkey can be changed by editing [hs.hotkey.bind](https://github.com/nathanc
 
 ### Privacy
 
-No keystrokes are sent to Google until you trigger the hotkey and start typing. If you prefer DuckDuckGo, replaces `GOOGLE_ENDPOINT` with:
+No keystrokes are sent to Google until you trigger the hotkey and start typing. If you prefer DuckDuckGo, replace `GOOGLE_ENDPOINT` with:
 `'https://duckduckgo.com/ac/?q=%s'` and the `imap` function with this:
 
 ```
