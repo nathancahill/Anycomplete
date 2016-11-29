@@ -1,6 +1,4 @@
 
-local urlencode = require("urlencode")
-
 -- Anycomplete
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
     local GOOGLE_ENDPOINT = 'https://suggestqueries.google.com/complete/search?client=firefox&q=%s'
@@ -12,7 +10,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
     end)
 
     chooser:queryChangedCallback(function(string)
-        local query = urlencode.string(string)
+        local query = hs.http.encodeForQuery(string)
 
         hs.http.asyncGet(string.format(GOOGLE_ENDPOINT, query), nil, function(status, data)
             if not data then return end
