@@ -1,7 +1,7 @@
 
 local urlencode = require("urlencode")
 
--- Google Autocomplete
+-- Anycomplete
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
     local GOOGLE_ENDPOINT = 'https://www.google.com/complete/search?client=hp&hl=en&xhr=t&q=%s'
     local current = hs.application.frontmostApplication()
