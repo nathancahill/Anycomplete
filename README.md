@@ -6,7 +6,8 @@ The magic of Google Autocomplete while you're typing. Anywhere.
 
 ### Installation
 
-An extension for [Hammerspoon](http://hammerspoon.org/). Once Hammerspoon is installed, copy `urlencode.lua` to `~/.hammerspoon/urlencode.lua` and the content of `anycomplete.lua` to `~/.hammerspoon/init.lua`. Reload the Hammerspoon config.
+An extension for [Hammerspoon](http://hammerspoon.org/). Once Hammerspoon is installed, copy `urlencode.lua` and `anycomplete.lua` to `~/.hammerspoon/`.
+To initialize, add `dofile("anycomplete.lua")` to `~/.hammerspoon/init.lua`. Reload the Hammerspoon config.
 
 ### Usage
 
