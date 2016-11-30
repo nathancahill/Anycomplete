@@ -6,15 +6,31 @@ The magic of Google Autocomplete while you're typing. Anywhere.
 
 ### Installation
 
-An extension for [Hammerspoon](http://hammerspoon.org/). Once Hammerspoon is installed, copy `anycomplete.lua` to `~/.hammerspoon/`.
-To initialize, add `dofile("anycomplete.lua")` to `~/.hammerspoon/init.lua` (creating it if it does not exist). Reload the Hammerspoon config.
+An extension for [Hammerspoon](http://hammerspoon.org/). Once Hammerspoon is installed, clone this repository to your `~/.hammerspoon` directory.
+
+    git clone https://github.com/nathancahill/anycomplete.git ~/.hammerspoon/anycomplete
+
+To initialize, add to `~/.hammerspoon/init.lua` (creating it if it does not exist):
+
+    local anycomplete = require "anycomplete/anycomplete"
+    anycomplete.registerDefaultBindings()
+
+Alternatively, copy `anycomplete.lua` from this repository to whereever
+you keep other Hammerspoon modules and load it appropriately.
+
+Reload the Hammerspoon config.
+
 
 ### Usage
 
 Trigger with the hotkey ⌃⌥⌘G. Once you start typing, suggestions will populate.
 They can be choosen with ⌘1-9 or by pressing the arrow keys and Enter.
 
-The hotkey can be changed by editing [hs.hotkey.bind](https://github.com/nathancahill/hammerspoon-config/blob/master/anycomplete.lua#L5).
+The hotkey can be changed by passing in arguments to
+`registerDefaultBindings` call (in your `~/.hammerspoon/init.lua` file)
+such as:
+
+    anycomplete.registerDefaultBindings({"cmd", "ctrl"}, 'L')
 
 ### Privacy
 

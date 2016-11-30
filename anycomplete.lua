@@ -1,6 +1,7 @@
+local mod = {}
 
 -- Anycomplete
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
+function mod.anycomplete()
     local GOOGLE_ENDPOINT = 'https://suggestqueries.google.com/complete/search?client=firefox&q=%s'
     local current = hs.application.frontmostApplication()
 
@@ -31,4 +32,12 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function()
     chooser:searchSubText(false)
 
     chooser:show()
-end)
+end
+
+function mod.registerDefaultBindings(mods, key)
+    mods = mods or {"cmd", "alt", "ctrl"}
+    key = key or "G"
+    hs.hotkey.bind(mods, key, mod.anycomplete)
+end
+
+return mod
