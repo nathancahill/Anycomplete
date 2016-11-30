@@ -38,7 +38,7 @@ No keystrokes are sent to Google until you trigger the hotkey and start typing. 
 `'https://duckduckgo.com/ac/?q=%s'` and the `imap` function with this:
 
 ```
-choices = hs.fnutils.imap(results[2], function(result)
+choices = hs.fnutils.imap(results, function(result)
     return {
         ["text"] = result["phrase"],
     }
