@@ -4,13 +4,30 @@ local mod = {}
 function mod.anycomplete()
     local GOOGLE_ENDPOINT = 'https://suggestqueries.google.com/complete/search?client=firefox&q=%s'
     local current = hs.application.frontmostApplication()
+    local tab = nil
     local copy = nil
     local choices = {}
 
     local chooser = hs.chooser.new(function(choosen)
         if copy then copy:delete() end
+        if tab then tab:delete() end
         current:activate()
         hs.eventtap.keyStrokes(choosen.text)
+    end)
+
+    -- Removes all items in list
+    function reset()
+        chooser:choices({})
+    end
+
+    tab = hs.hotkey.bind('', 'tab', function()
+        local id = chooser:selectedRow()
+        local item = choices[id]
+        -- If no row is selected, but tab was pressed
+        if not item then return end
+        chooser:query(item.text)
+        reset()
+        updateChooser()
     end)
 
     copy = hs.hotkey.bind('cmd', 'c', function()
@@ -25,8 +42,11 @@ function mod.anycomplete()
         end
     end)
 
-    chooser:queryChangedCallback(function(string)
+    function updateChooser()
+        local string = chooser:query()
         local query = hs.http.encodeForQuery(string)
+        -- Reset list when no query is given
+        if string:len() == 0 then return reset() end
 
         hs.http.asyncGet(string.format(GOOGLE_ENDPOINT, query), nil, function(status, data)
             if not data then return end
@@ -42,7 +62,9 @@ function mod.anycomplete()
 
             chooser:choices(choices)
         end)
-    end)
+    end
+
+    chooser:queryChangedCallback(updateChooser)
 
     chooser:searchSubText(false)
 
