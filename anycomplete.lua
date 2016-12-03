@@ -19,7 +19,6 @@ function mod.anycomplete()
 
     tab = hs.hotkey.bind('', 'tab', function()
         local id = chooser:selectedRow()
-        local row = chooser:rows(id)
         chooser:query(choices[id].text)
         reset()
         updateChooser()
