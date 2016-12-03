@@ -4,10 +4,25 @@ local mod = {}
 function mod.anycomplete()
     local GOOGLE_ENDPOINT = 'https://suggestqueries.google.com/complete/search?client=firefox&q=%s'
     local current = hs.application.frontmostApplication()
+    local copy = nil
+    local choices = {}
 
     local chooser = hs.chooser.new(function(choosen)
+        if copy then copy:delete() end
         current:activate()
         hs.eventtap.keyStrokes(choosen.text)
+    end)
+
+    copy = hs.hotkey.bind('cmd', 'c', function()
+        local id = chooser:selectedRow()
+        local item = choices[id]
+        if item then
+            chooser:hide()
+            hs.pasteboard.setContents(item.text)
+            hs.alert.show("Copied to clipboard", 1)
+        else
+            hs.alert.show("No search result to copy", 1)
+        end
     end)
 
     chooser:queryChangedCallback(function(string)
