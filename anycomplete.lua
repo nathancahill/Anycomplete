@@ -14,11 +14,15 @@ function mod.anycomplete()
     end)
 
     copy = hs.hotkey.bind('cmd', 'c', function()
-         local id = chooser:selectedRow()
-         local item = choices[id]
-         if item then
+        local id = chooser:selectedRow()
+        local item = choices[id]
+        if item then
+            chooser:hide()
             hs.pasteboard.setContents(item.text)
-         end
+            hs.alert.show("Copied to clipboard", 1)
+        else
+            hs.alert.show("No search result to copy", 1)
+        end
     end)
 
     chooser:queryChangedCallback(function(string)
