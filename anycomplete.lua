@@ -4,10 +4,11 @@ local mod = {}
 function mod.anycomplete()
     local GOOGLE_ENDPOINT = 'https://suggestqueries.google.com/complete/search?client=firefox&q=%s'
     local current = hs.application.frontmostApplication()
-    local tab
+    local tab = nil
+    local choices = {}
 
     local chooser = hs.chooser.new(function(choosen)
-        tab:disable()
+        if tab then tab:delete() end
         current:activate()
         hs.eventtap.keyStrokes(choosen.text)
     end)
@@ -19,7 +20,10 @@ function mod.anycomplete()
 
     tab = hs.hotkey.bind('', 'tab', function()
         local id = chooser:selectedRow()
-        chooser:query(choices[id].text)
+        local item = choices[id]
+        -- If no row is selected, but tab was pressed
+        if not item then return end
+        chooser:query(item.text)
         reset()
         updateChooser()
     end)
