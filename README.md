@@ -37,7 +37,8 @@ Hammerspoon can be installed using [homebrew/caskroom](https://caskroom.github.i
 ### Usage
 
 Trigger with the hotkey `⌃⌥⌘G`. Once you start typing, suggestions will populate.
-They can be choosen with ⌘1-9 or by pressing the arrow keys and Enter.
+They can be choosen with `⌘1-9` or by pressing the arrow keys and Enter.
+Pressing `⌘C` copies the selected item to the clipboard.
 
 The hotkey can be changed by passing in arguments to
 `registerDefaultBindings` call (in your `~/.hammerspoon/init.lua` file)
