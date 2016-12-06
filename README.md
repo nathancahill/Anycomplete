@@ -30,7 +30,6 @@ Reload the Hammerspoon config.
 
 Hammerspoon can be installed using [homebrew/caskroom](https://caskroom.github.io/).
 
-    $ brew tap caskroom/cask
     $ brew cask install hammerspoon
     $ open -a /Applications/Hammerspoon.app
 
