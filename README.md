@@ -33,6 +33,10 @@ Hammerspoon can be installed using [homebrew/caskroom](https://caskroom.github.i
     $ brew cask install hammerspoon
     $ open -a /Applications/Hammerspoon.app
 
+Accessibility must be enabled for Anycomplete to work.
+
+![](https://cloud.githubusercontent.com/assets/220827/20860328/a7dc4344-b975-11e6-893a-bb139ba8a102.png)
+
 ### Usage
 
 Trigger with the hotkey `⌃⌥⌘G`. Once you start typing, suggestions will populate.
