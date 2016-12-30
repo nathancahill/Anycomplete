@@ -51,7 +51,7 @@ such as:
 
 ### Warning
 
-Google might block your IP address if you use this. See #26.
+Google might block your IP address if you use this. See [#26](/nathancahill/Anycomplete/issues/26).
 
 ### Privacy
 
