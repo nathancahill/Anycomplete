@@ -49,9 +49,9 @@ such as:
 
     anycomplete.registerDefaultBindings({"cmd", "ctrl"}, 'L')
 
-### Warning: Google might block your IP address if you use this
+### Warning
 
-See #26.
+Google might block your IP address if you use this. See #26.
 
 ### Privacy
 
