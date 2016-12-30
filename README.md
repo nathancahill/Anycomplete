@@ -49,6 +49,10 @@ such as:
 
     anycomplete.registerDefaultBindings({"cmd", "ctrl"}, 'L')
 
+### Warning: Google might block your IP address if you use this
+
+See #26.
+
 ### Privacy
 
 No keystrokes are sent to Google until you trigger the hotkey and start typing. If you prefer DuckDuckGo, replace `GOOGLE_ENDPOINT` with:
