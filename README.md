@@ -21,7 +21,7 @@ To initialize, add to `~/.hammerspoon/init.lua` (creating it if it does not exis
     local anycomplete = require "anycomplete/anycomplete"
     anycomplete.registerDefaultBindings()
 
-Alternatively, copy `anycomplete.lua` from this repository to whereever
+Alternatively, copy `anycomplete.lua` from this repository to wherever
 you keep other Hammerspoon modules and load it appropriately.
 
 Reload the Hammerspoon config.
