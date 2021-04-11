@@ -30,7 +30,7 @@ Reload the Hammerspoon config.
 
 Hammerspoon can be installed using [homebrew/caskroom](https://caskroom.github.io/).
 
-    $ brew cask install hammerspoon
+    $ brew install --cask hammerspoon
     $ open -a /Applications/Hammerspoon.app
 
 Accessibility must be enabled for Anycomplete to work.
