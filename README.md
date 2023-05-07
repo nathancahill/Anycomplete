@@ -30,7 +30,7 @@ The hotkey can be changed by passing an argument to
 such as:
 
 ```lua
-anycomplete.bindHotkeys({{"cmd", "ctrl"}, "L"})
+anycomplete:bindHotkeys({{"cmd", "ctrl"}, "L"})
 ```
 
 ### Warning
